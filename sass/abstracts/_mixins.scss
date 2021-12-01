@@ -1,0 +1,63 @@
+@mixin clearfix {
+    &::after{
+
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+}
+
+/// media query manager
+ /*
+ 0 - 600px  phone
+ 600-900ox  tablet portrait
+ 900-1200px tabllet landscape
+[1200 - 1800px] normal desktop 
+
+ 1800px + big desktop 
+ 
+ */
+
+ /*break points
+ -phone
+ -tab-port
+ -tab-land
+ -big-desktop
+
+ 1em = 16px
+ as media queries are very usable with em instaed of rem as some browsers fails on rem 
+
+ */
+
+ 
+
+ @mixin respond($breakpoint) {
+     @if $breakpoint == phone{
+        //600px / 16px
+
+        @media(max-width:37.5em) {@content};
+         // content keyword will select the over all content on which media query must be applied 
+
+     }
+
+     @if $breakpoint == tab-port{
+        //900px / 16px
+        @media(max-width:56.25em) {@content}; 
+     }
+
+     @if $breakpoint == tab-land{
+        //1200px / 16px
+
+        @media(max-width:75em) {@content}; 
+
+     }
+
+     @if $breakpoint == big-desktop{
+        //1800px / 16px
+
+        @media(min-width:112.5em) {@content}; 
+
+     }
+
+ }

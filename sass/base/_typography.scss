@@ -1,0 +1,93 @@
+body {
+    font-weight: 400;
+    line-height: 1.7;
+    //color: $color-white;
+    
+   }
+
+
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin: 6rem;
+    
+  
+
+    &--main {
+
+        display:block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 2rem;
+        animation-name: moveleft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        /*animation-iteration-count: 2;
+        animation-delay: 2s;*/
+
+        @include respond(phone){
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
+    }
+
+    &--sub {
+
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.5rem;
+        animation: moveright 1s ease-out;
+        /*animation short hand property*/
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+            
+        }
+    }
+
+
+}
+
+.heading-secondary {
+ 
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;                      // for ssetting gradiant till text 
+    background-image: linear-gradient(to right ,$color-low,$color-dark);
+    -webkit-background-clip: text;           // background gets clips  till text is 
+    color: transparent;                      // need to see the linear gradiant effect  on this 
+    letter-spacing: .2rem;
+    transition: all .2s; // need to set for hover
+
+    @include respond(tab-port){
+        font-size: 3rem;
+    }
+   
+    @include respond(phone){
+        font-size: 2.5rem;
+    }
+
+        &:hover{
+                transform: skewy(2deg) skewX(15deg) scale(1.1);  // effect for skewing it  
+                text-shadow: .5rem 1rem 2rem rgba($color: #000000, $alpha: .2) ;
+            
+            }
+}
+
+.heading-tertiary{
+    color: $color-gray-dark-2;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.paragraph{
+    font-size: 1.6rem;
+    &:not(:last-child){
+
+        margin-bottom: 3rem;
+    }
+}

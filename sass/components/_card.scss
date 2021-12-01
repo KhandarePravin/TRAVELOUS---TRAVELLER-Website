@@ -1,0 +1,223 @@
+.card{
+    perspective: 150rem; //we need to define in parent where rotation will start 
+    -moz-perspective: 150rem; // for supporting in mozila firefox 
+    position: relative; // positioning of two cards 
+    height: 60rem;
+   
+    // side div in card 
+    &__side{
+        
+        //color: $color-white;
+        font-size: 4rem;
+        height: 60rem;
+        transition: all .5s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 2rem rgba($color: #000000, $alpha: .18);
+        overflow: hidden; // fix for overlapping of parent element as image on card is over lapping 
+        
+
+        &--front{
+            
+            
+
+        }
+
+        &--back{
+
+            transform: rotateY(180deg);
+                &-1{
+            background-image: linear-gradient(to right bottom ,$color-secondary-light, $color-secondary-dark );
+           
+                }
+                &-2{
+                    background-image: linear-gradient(to right bottom ,$color-low, $color-dark );
+                   
+                   }
+                &-3{
+                    background-image: linear-gradient(to right bottom ,$color-tertiary-light, $color-tertiary-dark );
+                   
+                 }
+        }
+    }
+    
+
+
+
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+
+
+    &:hover &__side--back{
+        transform: rotateY(0); 
+    }
+
+// front designing of card 
+&__picture{
+
+    background-size: cover;
+    background-blend-mode: screen ; //background-blend-mode for cool effect to be get on image with gradiant 
+    -webkit-clip-path:polygon(0 0,100% 0, 100% 85%,0 100%);     
+    clip-path: polygon(0 0,100% 0, 100% 85%,0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    &-1{
+        background-image: linear-gradient(to right bottom ,$color-secondary-light, $color-secondary-dark ),
+        url(/images/tv.jpg);
+         height: 20rem;
+    }
+
+
+    &-2{
+        background-image: linear-gradient(to right bottom ,$color-low, $color-dark ),
+        url(/images/snow.jpg);
+         height: 20rem;
+    }
+    &-3{
+        background-image: linear-gradient(to right bottom ,$color-tertiary-light, $color-tertiary-dark ),
+        url(/images/hike.jpg);
+         height: 20rem;
+    }
+
+  
+}
+
+&__heading{
+
+    
+    font: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: absolute;
+    top: 8rem;
+    right: 2rem;
+    text-align: right;
+    width: 100%;
+
+   // text-align: center;
+
+}
+
+&__heading_span{
+    padding: 1.2rem 1.5rem;
+    
+    
+    color:$color-white;
+    // webkit needs to be use for getting in function on chrome  
+    -webkit-box-decoration-break:clone; 
+    //The box-decoration-break CSS property specifies how an element's fragments should be rendered when broken across multiple lines
+    box-decoration-break: clone;
+    &--1{
+    background-image: linear-gradient(to right bottom,  $color-secondary-light, $color-secondary-dark);
+}
+&--2{
+    background-image: linear-gradient(to right bottom,  $color-low, $color-dark);
+}
+&--3{
+    background-image: linear-gradient(to right bottom,  $color-tertiary-light, $color-tertiary-dark);
+}
+}
+
+&__details{
+
+    ul{
+        list-style: none;
+        width: 80%;
+        padding: 5rem;
+        margin: 0 auto;
+               
+        li{
+          
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 2rem;
+            &:not(:last-child){
+
+                border-bottom: 1px solid grey;
+            }
+
+        }
+    }
+}
+
+&__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 90%;
+        text-align: center;
+        
+    }
+
+    &__price-box{
+        color: $color-white;
+        text-align: center;
+        margin-bottom: 8rem;
+        
+       
+       
+
+    }
+   
+    &__price-only{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+
+    }
+    &__price-value{
+        
+        font-size: 6rem;
+        font-weight: lighter;      
+        
+
+    }
+
+
+}
+
+
+@include respond(tab-port) {
+
+    
+   
+  &__side{
+      height: auto;
+      position: relative;
+      border-radius: 3px;
+
+      &--back{
+          transform: rotateY(0);
+          
+      }
+
+      
+    }
+
+    &:hover &_side--front{
+        transform: rotateY(0);
+
+    }
+
+    &__cta{
+        position: relative;
+        transform: translate(0);
+        width: 100%;
+        padding: 4rem;
+   }
+
+   &__price-box{
+
+     margin-bottom: 8rem;
+
+    }
+
+    &__price-value{
+        font-size: 6rem;
+    }
+}

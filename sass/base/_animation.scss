@@ -1,0 +1,59 @@
+@keyframes moveleft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveright {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes movebutton {
+
+    0% {
+
+        opacity: 0;
+        transform: translateY(3rem);
+        /*if we have to move down we have to use positive value */
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+
+/*Animation for moving logo*/
+@keyframes movelogo {
+
+    0% {
+        transform: rotate(360deg);
+
+    }
+
+
+}
