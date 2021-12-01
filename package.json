@@ -1,0 +1,20 @@
+{
+  "name": "advanced-css",
+  "version": "1.0.0",
+  "description": "traveller page",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    
+    
+  },
+  "author": "pravin",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "concat": "^1.0.3",
+    "node-sass": "^6.0.1",
+    "postcss-cli": "^9.0.2"
+  },
+  "dependencies": {}
+}
